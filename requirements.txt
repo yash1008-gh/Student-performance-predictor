@@ -7,4 +7,5 @@ ydata-profiling
 dill
 catboost
 xgboost
+flask
 # -e .

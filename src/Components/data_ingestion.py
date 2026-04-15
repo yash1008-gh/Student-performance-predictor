@@ -24,6 +24,13 @@ class DataIngestion:
         try:
             df=pd.read_csv(r"C:\Users\yashs\Downloads\Student's performace prediction\src\Data\StudentsPerformance.csv")
             logging.info('Read the dataset as dataframe')
+            df.rename(columns={
+                'writing score': 'writing_score',
+                'reading score': 'reading_score',
+                'race/ethnicity': 'race_ethnicity',
+                'test preparation course': 'test_preparation_course',
+                'parental level of education': 'parental_level_of_education'
+                }, inplace=True)
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path,index=False)
